@@ -22,10 +22,31 @@ android {
 
     buildTypes {
         release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions 'app'
+
+    productFlavors {
+        burgerking {
+            dimension 'app'
+            applicationId 'br.com.burgerking.app'
+        }
+
+        mcdonalds {
+            dimension 'app'
+            applicationId 'br.com.mcdonalds.app'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
